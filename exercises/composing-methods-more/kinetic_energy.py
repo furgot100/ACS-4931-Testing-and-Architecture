@@ -33,6 +33,6 @@ def calculate_kinetic_energy(mass, distance, time):
     kinetic_energy = 0.5 * mass.value * speed ** 2
     return kinetic_energy
 
-mass = Mass(2, "solar-mass")
-distance = Distance(2, 'ly')
-print(calculate_kinetic_energy(mass, distance, 3600e20))
+provided_mass = Mass(2, "solar-mass")
+provided_distance = Distance(2, 'ly')
+print(calculate_kinetic_energy(provided_mass, provided_distance, 3600e20))
