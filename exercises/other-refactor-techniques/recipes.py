@@ -1,5 +1,8 @@
 # by Kami Bigdely
 # Extract Class
+from this import d
+
+
 foods = {'butternut squash soup':[45, True, 'soup','North African',\
      ['butter squash','onion','carrot', 'garlic','butter','black pepper', 'cinnamon','coconut milk']\
         ,'1. Grill the butter squash, onion, carrot and garlic in the oven until'
@@ -15,6 +18,11 @@ foods = {'butternut squash soup':[45, True, 'soup','North African',\
                 'the seasonings 2. In a bowl, mix ground beef with the'
                 'seasoning 3. Add all the content to a sausage stuffer. Put the casing on'
                 "the stuffer funnel. Rotate the stuffer's handle (or turn it on) to make your yummy sausages!"]}
+
+class Recipe():
+    def __init__(self,name, ingredients):
+        self.name = name
+        self.ingredients = ingredients
 
 for key, value in foods.items():
     print("Name:",key)
