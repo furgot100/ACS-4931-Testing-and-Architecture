@@ -2,13 +2,12 @@
 # Move Field
 
 class Car:
-    def __init__(self, engine, wheels, cabin, tpms_di, fuel_tank):
+    def __init__(self, engine, wheels, cabin, fuel_tank):
         self.engine = engine
         # TODO: tpms is better to be in the Wheel class. 
         # Each wheel has a single tpms attached to it. 
         # Thus, instead of having a list of tpms in 'Car' class
         # have each of the tpms in each 'Wheel'.
-        self.tpms_list = tpms_di  # Tire Pressure Monitoring System.
         self.wheels = wheels
         # Set wheels' car reference into each wheel.
         for w in wheels:
@@ -32,14 +31,14 @@ class Wheel:
         print('remove old tube.')
          # TODO: Rewrite the following after moving tpms to the 'Wheel' class
         print('cleaned tpms: ', 
-              self.car.tpms_di[self.wheel_location].get_serial_number, 
+              self.tpms_di.get_serial_number, 
               '.')
         print('installed new tube.')        
         
     def read_tire_pressure(self):
         # TODO: After making tpms an attribute of 'Wheel' class,
         #       rewrite the following.
-        return self.car.tpms_di[self.wheel_location].get_pressure()
+        return self.tpms_di.get_pressure()
     
     def set_car(self, car):
         self.car = car
@@ -82,8 +81,8 @@ tpms_di = {'front-right': Tpms(983408543), 'front-left':Tpms(4343083),
                'back-right':Tpms(23654835), 'back_left':Tpms(3498857)}
 
 
-wheels = [Wheel(tpms_di, None,'front-right'), Wheel(tpms_di, None, 'front-left'), 
-          Wheel(tpms_di, None, 'back-right'), Wheel(tpms_di, None, 'back-left')]
+wheels = [Wheel(Tpms(983408543), None, 'front-right'), Wheel(Tpms(4343083), None, 'front-left'), 
+            Wheel(Tpms(23654835), None, 'back-right'), Wheel(Tpms(3498857), None, 'back-left')]
 
 fuel_tank = FuelTank()
 
