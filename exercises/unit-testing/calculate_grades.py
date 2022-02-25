@@ -39,3 +39,12 @@ def print_stat(mean, sd):
     print('****** END ******')
 
 display_grade_stat()
+
+
+def test_inputs():
+    grade_list = [80,70,30,83,92]
+    assert read_input() == grade_list
+
+def test_calculations():
+    grade_list = [80,70,30,83,92]
+    assert calculate_stat(grade_list) == (71.0, 21.67025611293)

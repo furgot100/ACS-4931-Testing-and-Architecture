@@ -15,4 +15,16 @@ def get_age_carbon_14_dating(carbon_14_ratio):
     in the sample conpared to the amount in living
     tissue (unitless).
     """
-    return math.log(carbon_14_ratio) / DECAY_CONSTANT * T_HALF
+    if 0 < carbon_14_ratio < 1:
+        return math.log(carbon_14_ratio) / DECAY_CONSTANT * T_HALF
+    else: 
+        return "Decimal must be between 0 and 1"
+
+
+def test_carbon_dating():
+    carbon_ratio = 0.35
+    assert get_age_carbon_14_dating(carbon_14_ratio) == 8680.34743633106
+
+def test_error_handling():
+    carbon_ratio = 1.2
+    assert get_age_carbon_14_dating(carbon_ratio) == "Decimal must be between 0 and 1"

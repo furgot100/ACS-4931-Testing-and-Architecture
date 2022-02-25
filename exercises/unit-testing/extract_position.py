@@ -12,6 +12,14 @@ def extract_position(line):
                 pos = None
     return pos
 
+def test_error_handling():
+    error = '|error| numerical calculations could not converge.'
+    assert extract_position(error) == None
+
+def test_extract_position():
+    update = '|update| the positron location in the particle accelerator is x:21.432'
+    assert extract_position(update) == '21.432'
+
 if __name__ == "__main__":
     result1 = extract_position('|error| numerical calculations could not converge.')
     print(result1)
